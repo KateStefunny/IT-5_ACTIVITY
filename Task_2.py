@@ -15,3 +15,9 @@ orders = {
     "Chicken": 1,
     "Drink": 2
 }
+
+totalCost = 0
+for item, quantity in orders.items():
+    totalCost += menu[item] * quantity
+
+print("Total Cost: ₱", totalCost)

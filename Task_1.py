@@ -36,3 +36,5 @@ print("\n===== ORDER SUMMARY =====")
 
 for item, quantity in orders.items():
     print(item, "x", quantity)
+
+    #if statement needs to be fixed

@@ -16,46 +16,59 @@ for item, price in menu.items():
   print(item, "-", price)
 
 number = int(input("Enter number of order attemos: "))
+
 for i in range (1, number + 1):
   print("Order", i)
 
   item = input("Enter item name: ").title()
 
   if item not in menu:
-    print("Item not available!")
-    continue
+      print("Item not available!")
+      continue
 
-quantity = int(input("Enter quantity: "))
+  quantity = int(input("Enter quantity: "))
 
   if quantity <= 0:
-    print("Invalid quantity!")
-    continue
+      print("Invalid quantity!")
+      continue
 
-order[item] = orders.get(item, 0) + quantity
+  orders[item] = orders.get(item, 0) + quantity
 
 print("===== ORDER SUMMARY =====")
-
-for item, quanttity in orders.items():
-  print(item, "x", quantity)
 
 total = 0
 
 for item, quantity in orders.items():
-  total += menu[item] * quantity 
+  subtotal = menu[item] * quantity
+  print(item, "x", quantity, "=", subtotal)
+  total += subtotal
+if total >= 500:
+    discount = total * 0.10
+else:
+    discount = 0
+  
+final_amount = total - discount
 
-print("Total Cost: ", total)
+print("Subtotal: ", total)
+print("Discount: ", discount)
+print("Total Amount: ", final_amount)
 
-discount = float(input("Enter discount amount: "))
+if total > 0:
 
-final_total = total - discount
+    payment = float(input("Enter payment amount: "))
 
-print("Final Total", final_total)
+    if payment >= final_amount:
+        change = payment - final_amount
 
-payment = float(input("Enter payment: "))
+        print("===== PAYMENT RECEIPT =====")
+        print("Total Amount: ", final_amount)
+        print("Change: ", change)
 
-if payment >= final-total:
-  change = payment - final-total
-  print("Change: ", change)
+    else:
+        balance = final_amount - payment
+
+        print("Insufficient payment!")
+        print("Remaining Balance: ", balance)
 
 else:
-  print("Insuficient payment!")
+     print("No valid order found.")

@@ -24,7 +24,7 @@ number = int(input("\nEnter number of order attempts: "))
 
 for i in range(1, number + 1):
 
-    print("\nOrder", i)
+    print("Order", i)
 
     item = input("Enter item name: ").title()
 
@@ -41,7 +41,7 @@ for i in range(1, number + 1):
     orders[item] = orders.get(item, 0) + quantity
 
 
-print("\n===== ORDER SUMMARY =====")
+print("===== ORDER SUMMARY =====")
 
 total = 0
 

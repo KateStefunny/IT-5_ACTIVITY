@@ -15,3 +15,33 @@ orders = {
     "Chicken": 1,
     "Drink": 2
 }
+
+total = 0
+
+payment = float(input("Enter Your Payment: ")) 
+
+for item, quantity in orders.items(): #calculates how much ordered in total
+    total += menu[item] * quantity
+
+for item, quantity in orders.items(): # displlay orders and calcullate subtottal
+    print(item, "x", quantity, "=", menu[item] * quantity)
+
+if total >=500:
+    discount = total * 0.10
+else:
+    discount = 0
+
+final_total = total - discount
+
+if payment >= final_total:
+    change = payment - final_total
+else:
+    change = 0
+    print("Insufficient payment.")
+
+print("\n      BILLING SUMMARY      ")
+
+print("Total: ", total)
+print("Discount: ", discount)
+print("Final Total: ", final_total)
+print("Change: ", change)

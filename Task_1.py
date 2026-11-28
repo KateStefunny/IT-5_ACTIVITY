@@ -14,19 +14,19 @@ for item, price in menu.items():
 
 number = int(input("\nEnter number of order attempts: "))
 
-for i in range(1, number):
+for i in range(1, number + 1): #Change range(1, number) to range(1, number +1),to include the total number of attemps.
 
     print("\nOrder", i)
 
     item = input("Enter item name: ").title()
 
-    if item in menu:
+    if item not in menu: #Changed "in" to "not in" to check if the item is NOT available in the menu.
         print("Item not available!")
         continue
 
     quantity = int(input("Enter quantity: "))
 
-    if quantity < 0:
+    if quantity <= 0: #Changed < 0 to <= 0 to prevent zero and negative quantities.
         print("Invalid quantity!")
         continue
 

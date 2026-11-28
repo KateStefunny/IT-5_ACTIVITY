@@ -36,3 +36,8 @@ print("\n===== ORDER SUMMARY =====")
 
 for item, quantity in orders.items():
     print(item, "x", quantity)
+
+
+    #(1,number)
+    #(if item in menu)
+    #(if quanlity <0)

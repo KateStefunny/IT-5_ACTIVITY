@@ -1,3 +1,4 @@
+
 menu = {
     "Burger": 85,
     "Fries": 45,
@@ -14,23 +15,26 @@ for item, price in menu.items():
 
 number = int(input("\nEnter number of order attempts: "))
 
-for i in range(1, number):
+for i in range(1, number + 1):
 
     print("\nOrder", i)
 
-    item = input("Enter item name: ").title()
+    item = input("Enter item name: ").strip().title()
 
-    if item in menu:
+    if item not in menu:
         print("Item not available!")
         continue
 
     quantity = int(input("Enter quantity: "))
 
-    if quantity < 0:
+    if quantity <= 0:
         print("Invalid quantity!")
         continue
 
-    orders[item] = quantity
+    if item in orders:
+        orders[item] += quantity
+    else:
+        orders[item] = quantity
 
 print("\n===== ORDER SUMMARY =====")
 
